@@ -11,7 +11,8 @@
 
 <% @articles.each do |article| %>
 <h2><%= link_to article.name, article %></h2>
-<%= raw article.content %> <br>
+<%=raw highlight_query_results(article.content, @queries) %>
+<br>
 <%= article.ancestry %> <br>
 <strong>ip:</strong><%= article.ip %> <br>
 <strong>DNS:</strong><%= article.dns %> <br>

@@ -5,6 +5,9 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.text_search(params[:query])
+    if params[:query]
+      @queries = params[:query].split(' ')
+    end
   end
 
   # GET /articles/1
