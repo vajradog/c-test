@@ -18,10 +18,14 @@ module ApplicationHelper
         end
         indices = indices.flatten!
         old_index = -9999
-        indices.each do |i|
-          next if (old_index+either_side_characters) > i
-          excerpts_array << "#{temp[start_index(i - either_side_characters).. (i + either_side_characters)]}" if i
-          old_index = i
+
+        #check if indices exist
+        if indices
+          indices.each do |i|
+            next if (old_index+either_side_characters) > i
+            excerpts_array << "#{temp[start_index(i - either_side_characters).. (i + either_side_characters)]}" if i
+            old_index = i
+          end
         end
       end
 
